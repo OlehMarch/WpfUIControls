@@ -1,0 +1,237 @@
+﻿<UserControl x:Class="WpfUIControls.UI.Main.Lighting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfUIControls.UI.Main"
+             mc:Ignorable="d" d:DesignWidth="300" Height="283.909" MinWidth="300" MinHeight="282">
+    <UserControl.Resources>
+        <Color x:Key="UI_Background_LightBlack">#FF202020</Color>
+        <Color x:Key="UI_Background_DarkGray">#FF323232</Color>
+        <Color x:Key="UI_Foreground_LightGray">#FFBCBCBC</Color>
+        <Color x:Key="UI_Background_Selection_Gray">#FF474747</Color>
+        <Color x:Key="UI_CheckBox_Selection_Golden">#FFFFA131</Color>
+        <Style TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <BulletDecorator Background="Transparent">
+                            <BulletDecorator.Bullet>
+                                <Border x:Name="Border"  
+                                        Width="14" 
+                                        Height="14" 
+                                        CornerRadius="1" 
+                                        Background="#FFBCBCBC"
+                                        BorderThickness="1"
+                                        BorderBrush="#FFBCBCBC">
+                                    <Path 
+                                        Width="10" Height="10" 
+                                        x:Name="CheckMark"
+                                        SnapsToDevicePixels="False" 
+                                        Stroke="Black"
+                                        StrokeThickness="2"
+                                        Data="M 1 4 L 4 8 L 9 1" />
+                                </Border>
+                            </BulletDecorator.Bullet>
+                            <ContentPresenter Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    RecognizesAccessKey="True"/>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="false">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter TargetName="CheckMark" Property="Data" Value="M 0 7 L 7 0" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FFBCBCBC" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#FFFFA131" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="White" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#FFFFA131" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="66*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+        </Grid.Background>
+        <Border x:Name="BorderRow7" BorderThickness="0" Grid.Row="6" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+
+        <Border x:Name="BorderRow6" BorderThickness="0" Grid.Row="5" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+
+        <Border x:Name="BorderRow4" BorderThickness="0" Grid.Row="3" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+        <Border x:Name="BorderRow5" BorderThickness="0" Grid.Row="4" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+
+        <Border x:Name="BorderRow3" BorderThickness="0" Grid.Row="2" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+
+        <Border x:Name="BorderRow2" BorderThickness="0" Grid.Row="1" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+
+        <Border x:Name="BorderRow1" BorderThickness="0" Grid.ColumnSpan="3">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_DarkGray}"/>
+            </Border.Background>
+        </Border>
+        <CheckBox x:Name="cbCastShadow" Content="" Grid.Column="2" 
+                  Margin="15,12,0,13" HorizontalAlignment="Left" Width="14" MouseEnter="cbCastShadow_MouseEnter" MouseLeave="cbCastShadow_MouseLeave" RenderTransformOrigin="0.5,0.5" ToolTip="Controls whether the primitive component should cast a shadow or not" BorderBrush="{x:Null}" VerticalContentAlignment="Center" Background="White">
+            <CheckBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CheckBox.RenderTransform>
+            <CheckBox.Effect>
+                <DropShadowEffect x:Name="cbCastShadowEffect" Direction="0" Color="{DynamicResource UI_Foreground_LightGray}" RenderingBias="Quality" ShadowDepth="0"/>
+            </CheckBox.Effect>
+        </CheckBox>
+        <Label x:Name="lCastsShadow" Content="Cast Shadow" VerticalContentAlignment="Center" ToolTip="Controls whether the primitive component should cast a shadow or not" Background="{x:Null}">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <GridSplitter x:Name="gridSplitter" Grid.Column="1" HorizontalAlignment="Stretch" Grid.RowSpan="8" Margin="0,2">
+            <GridSplitter.Background>
+                <SolidColorBrush Color="{DynamicResource UI_Background_LightBlack}"/>
+            </GridSplitter.Background>
+        </GridSplitter>
+        <Label x:Name="lIlluminanceFactor" Content="Illuminance factor" Grid.Row="1" Background="{x:Null}" VerticalContentAlignment="Center">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="lAmbient" Content="Ambient" Grid.Row="2" RenderTransformOrigin="0.491,-0.133" Background="{x:Null}" VerticalContentAlignment="Center" Margin="25,0,0,0">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="lDiffuse" Content="Diffuse" Grid.Row="3" RenderTransformOrigin="0.491,-0.133" Background="{x:Null}" VerticalContentAlignment="Center" Margin="25,0,0,0">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="lSpecular" Content="Specular" Grid.Row="4" RenderTransformOrigin="0.491,-0.133" Background="{x:Null}" VerticalContentAlignment="Center" Margin="25,0,0,0">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <Grid x:Name="GridAmbient" Grid.Column="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="sliderAmbient" Margin="10,10,0,10" Maximum="1" LargeChange="0.1" SmallChange="0.01" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" TickFrequency="0.1" ValueChanged="sliderAmbient_ValueChanged"/>
+            <Label x:Name="lAmbientValue" Content="0.0" Grid.Column="1" Background="{x:Null}" VerticalContentAlignment="Center" Margin="0" Padding="10,5,5,5">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+        <Grid x:Name="GridDiffuse" Grid.Column="2" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="sliderDiffuse" Margin="10,10,0,10" Maximum="1" LargeChange="0.1" SmallChange="0.01" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" TickFrequency="0.1" ValueChanged="sliderDiffuse_ValueChanged"/>
+            <Label x:Name="lDiffuseValue" Content="0.0" Grid.Column="1" Background="{x:Null}" VerticalContentAlignment="Center" Margin="0" Padding="10,5,5,5">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+        <Grid x:Name="GridSpecular" Grid.Column="2" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="sliderSpecular" Margin="10,10,0,10" Maximum="1" LargeChange="0.1" SmallChange="0.01" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" TickFrequency="0.1" ValueChanged="sliderSpecular_ValueChanged"/>
+            <Label x:Name="lSpecularValue" Content="0.0" Grid.Column="1" Background="{x:Null}" VerticalContentAlignment="Center" Margin="0" Padding="10,5,5,5">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+        <Grid x:Name="GridReflectance" Grid.Column="2" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="sliderReflectance" Margin="10,10,0,10" Maximum="100" LargeChange="10" SmallChange="1" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" TickFrequency="10" ValueChanged="sliderReflectance_ValueChanged"/>
+            <Label x:Name="lReflectanceValue" Content="0.0" Grid.Column="1" Background="{x:Null}" VerticalContentAlignment="Center" Margin="0" Padding="10,5,5,5">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+        <Label x:Name="lReflectance" Content="Shininess" Grid.Row="5" Background="{x:Null}" VerticalContentAlignment="Center">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="lReflectance_Copy" Content="Shine Damper" Grid.Row="6" Background="{x:Null}" VerticalContentAlignment="Center">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+            </Label.Foreground>
+        </Label>
+        <Grid x:Name="GridShineDamper" Grid.Column="2" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="sliderShineDamper" Margin="10,10,0,10" Maximum="200" LargeChange="20" SmallChange="1" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" TickFrequency="10" ValueChanged="sliderShineDamper_ValueChanged"/>
+            <Label x:Name="lShineDamperValue" Content="0.0" Grid.Column="1" Background="{x:Null}" VerticalContentAlignment="Center" Margin="0" Padding="10,5,5,5">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource UI_Foreground_LightGray}"/>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,43 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTest"
+        xmlns:Main="clr-namespace:WpfUIControls.UI.Main;assembly=WpfUIControls" xmlns:Additional="clr-namespace:WpfUIControls.UI.Additional;assembly=WpfUIControls" x:Class="WpfTest.MainWindow"
+        mc:Ignorable="d"
+        Title="Wpf test app" Height="610" Width="570" WindowStartupLocation="CenterScreen">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="430*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="140"/>
+        </Grid.ColumnDefinitions>
+
+        <Main:EntityParamHolder x:Name="entityParamHolder" Grid.RowSpan="9"/>
+        <Button x:Name="buttonAddToGrid" Content="Add to grid items" Click="buttonAddToGrid_Click" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Margin="10,5,0,5"/>
+        <GridSplitter x:Name="gridSplitter" Grid.Column="1" HorizontalAlignment="Stretch" Grid.RowSpan="9"/>
+        <Button x:Name="buttonGetTransform" Content="Get Mesh Transform" Grid.Column="2" Margin="10,5,0,5" Grid.Row="1" Click="buttonGetTransform_Click"/>
+        <Button x:Name="buttonSetTransform" Content="Set Mesh Transform" Grid.Column="2" Margin="10,5,0,5" Grid.Row="3" Click="buttonSetTransform_Click"/>
+        <Label x:Name="labelMeshTransform" Content="" Grid.Column="2" Grid.Row="2" Foreground="#FFC7C7C7" Margin="10,0,0,0"/>
+        <Button x:Name="buttonSetLighting" Content="Set Mesh Lighting" Grid.Column="2" Margin="10,5,0,5" Grid.Row="6" Click="buttonSetLighting_Click"/>
+        <Button x:Name="buttonGetLighting" Content="Get Mesh Lighting" Grid.Column="2" Margin="10,5,0,5" Grid.Row="4" Click="buttonGetLighting_Click"/>
+        <Label x:Name="labelMeshLighting" Content="" Grid.Column="2" Grid.Row="5" Foreground="#FFC7C7C7" Margin="10,0,0,0"/>
+        <Button x:Name="buttonToWorldObjWindow" Content="To World Objects" Grid.Column="2" Margin="10,5,0,5" Grid.Row="7" Click="buttonToWorldObjWindow_Click"/>
+
+        <Additional:ContentItem x:Name="contentItem" Grid.Column="2" Margin="5,91,5,5" Grid.Row="8"/>
+
+    </Grid>
+
+</Window>
